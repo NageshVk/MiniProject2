@@ -1,5 +1,11 @@
 terraform {
-  cloud {}
+  cloud {
+    organization = "Deployorg"
+
+    workspaces {
+      name = "MiniProject2"
+    }
+  }
 
   required_providers {
     aws = {
