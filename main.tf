@@ -21,16 +21,10 @@ resource "aws_s3_bucket" "app" {
 }
 
 resource "aws_s3_object" "app" {
-  acl          = "public-read"
   key          = "index.html"
   bucket       = aws_s3_bucket.app.id
   content      = file("./assets/index.html")
   content_type = "text/html"
-}
-
-resource "aws_s3_bucket_acl" "bucket" {
-  bucket = aws_s3_bucket.app.id
-  acl    = "public-read"
 }
 
 resource "aws_s3_bucket_website_configuration" "terramino" {
